@@ -10,6 +10,9 @@ while True:
     n = int(input('берут с ящика (не больше ' + str(kel) + ') = '))
     nFind = int(input('Сколько элементов (не больше ' + str(n) + ') = '))
     kFind = int(input('Какой тип (не больше ' + str(kn) + ') = '))
-    C = factorial(k[kFind]) / (factorial(nFind) * factorial(k[kFind] - nFind))
-    Cob = factorial(kel) / (factorial(n) * factorial(kel - n))
-    print(C,'\n', Cob,'\n', C/Cob)
+    if nFind <= kFind:
+        C = factorial(k[kFind]) / (factorial(nFind) * factorial(k[kFind] - nFind))
+        Cob = factorial(kel) / (factorial(n) * factorial(kel - n))
+        print(C,'\n', Cob,'\n', C/Cob)
+    else:
+        print(0)
