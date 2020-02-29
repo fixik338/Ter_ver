@@ -11,7 +11,7 @@ def kombin(t=0):
         k = int(input('Enter k = '))
         m = np.zeros(k)
         for i in range(k):
-            print('m', '[', i + 1, ']', '=', end=' ')
+            print('m', '[', i, ']', '=', end=' ')
             m[i] = int(input())
         if 0 <= len(m) <= n:
             C = 1
@@ -59,14 +59,18 @@ def kombin(t=0):
         if nFind <= k[kFind]:
             C = factorial(k[kFind]) / (factorial(nFind) * factorial(k[kFind] - nFind))
             Cob = factorial(kel) / (factorial(n) * factorial(kel - n))
-            print(C, '\n', Cob, '\n', C / Cob)
+            return C / Cob
         else:
-            print(0)
+            return 0
     else:
         return "Такой комбинации не существует"
 
 
-print("Выберите метод:\n 1 - Размещение с повторением\n 2 - Сочетания без повторений\n 3 - Перестановки с повторениями")
+
 while True:
+    print("Выберите метод:\n "
+          "1 - Размещение с повторением\n "
+          "2 - Сочетания без повторений\n "
+          "3 - Перестановки с повторениями")
     g = input()
     print(kombin(g))
