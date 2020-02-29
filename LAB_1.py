@@ -1,24 +1,24 @@
-"  задачи 2 и 5(2 ч)"
 import numpy as np
-import sympy as sp
 from math import *
+from PIL import Image
 
 
-def kombin(t=0):
+def kombin(t='0'):
     if t == '3':
         print("Перестановки с повторениями")
         n = int(input("Enter n = "))
         k = int(input('Enter k = '))
         m = np.zeros(k)
         for i in range(k):
-            print('m', '[', i, ']', '=', end=' ')
-            m[i] = int(input())
+            m[i] = int(input(' m[' + str(i) + '] = '))
         if 0 <= len(m) <= n:
             C = 1
             for i in range(len(m)):
                 m[i] = factorial(m[i])
                 C *= m[i]
             P = factorial(n) / C
+            image3 = Image.open("images/033.jpg")
+            image3.show()
             return P
         else:
             return "Ошибка в начальном условии"
@@ -28,6 +28,8 @@ def kombin(t=0):
         m = int(input('Enter m = '))
         if 0 <= m <= n:
             C = factorial(n) / (factorial(n - m) * factorial(m))
+            image2 = Image.open("4513087.jpeg")
+            image2.show()
             return C
         else:
             return "Ошибка в начальном условии"
@@ -36,9 +38,14 @@ def kombin(t=0):
         n = int(input("Enter n = "))
         m = int(input('Enter m = '))
         A = n ** m
+        image1 = Image.open("images/img-VEdgzz.png")
+        image1.show()
         return A
     elif t == "419":
-        print("Мужички начинают работать...")
+        print("Имеется m операторов и n перенумерованных приборов, которые они могут обслуживать. Каждый оператор "
+              "выбирает случайным образом и с одинаковой ве-роятностью любой прибор, но с условием, что ни один "
+              "прибор не может обслужи-ваться больше, чем одним оператором. Найти вероятность того, что будут выбраны "
+              "для обслуживания приборы с номерами 1, 2, …, m.")
         n = int(input("Кол-во приборов: "))
         m = int(input("Кол-во рабочих: "))
         if 0 <= m <= n:
@@ -47,7 +54,9 @@ def kombin(t=0):
         else:
             return "Ошибка в начальном условии"
     elif t == "5":
-        print("Детали ожидают своей материализации и работы над ними")
+        print("В ящике имеется kТЭЗ, из них k1 элементов 1-го типа, …, ki элементов i-готипа, …, km элементов m-го типа"
+              "Из ящика выбирают наугад n ТЭЗ.Найти вероятность того, что среди них будет n1 ТЭЗ 1-го типа, …, "
+              "ni ТЭЗ i-го типа,…, nm ТЭЗ m-го типа.")
         kn = int(input("Кол - во типов = "))
         k = np.zeros(kn)
         for i in range(kn):
@@ -64,7 +73,6 @@ def kombin(t=0):
             return 0
     else:
         return "Такой комбинации не существует"
-
 
 
 while True:

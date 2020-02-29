@@ -8,8 +8,8 @@ while True:
         k[i] = int(input(' k[' + str(i) + '] = '))
     kel = int(np.sum(k))
     n = int(input('берут с ящика (не больше ' + str(kel) + ') = '))
-    nFind = int(input('Сколько элементов (не больше ' + str(n) + ') = '))
     kFind = int(input('Какой тип (не больше ' + str(kn) + ') = '))
+    nFind = int(input('Сколько элементов (не больше ' + str(int(k[kFind])) + ') = '))
     if nFind <= k[kFind]:
         C = factorial(k[kFind]) / (factorial(nFind) * factorial(k[kFind] - nFind))
         Cob = factorial(kel) / (factorial(n) * factorial(kel - n))
