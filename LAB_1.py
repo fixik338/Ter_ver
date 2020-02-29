@@ -47,20 +47,21 @@ def kombin(t=0):
         else:
             return "Ошибка в начальном условии"
     elif t == "5":
-        print("Перестановки с повторениями")
-        k = int(input('Enter k = '))
-        n = int(input('Enter n = '))
-        m = np.zeros(k)
-        for i in range(k):
-            print('m', '[', i + 1, ']', '=', end=' ')
-            m[i] = int(input())
-            for i in range(n):
-                m[i] = factorial(m[i])
-                C *= m[i]
-            P = factorial(n) / C
-            return P
+        print("Детали ожидают своей материализации и работы над ними")
+        kn = int(input("Кол - во типов = "))
+        k = np.zeros(kn)
+        for i in range(kn):
+            k[i] = int(input(' k[' + str(i) + '] = '))
+        kel = int(np.sum(k))
+        n = int(input('берут с ящика (не больше ' + str(kel) + ') = '))
+        kFind = int(input('Какой тип (не больше ' + str(kn) + ') = '))
+        nFind = int(input('Сколько элементов (не больше ' + str(int(k[kFind])) + ') = '))
+        if nFind <= k[kFind]:
+            C = factorial(k[kFind]) / (factorial(nFind) * factorial(k[kFind] - nFind))
+            Cob = factorial(kel) / (factorial(n) * factorial(kel - n))
+            print(C, '\n', Cob, '\n', C / Cob)
         else:
-            return "Ошибка в начальном условии"
+            print(0)
     else:
         return "Такой комбинации не существует"
 
