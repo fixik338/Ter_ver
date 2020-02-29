@@ -2,15 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="80569f6f-d20a-4ca6-bdd1-0ec2a05d53f8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/TeorVer.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LAB_1.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/draft.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/TeorVer.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/draft.py" beforeDir="false" afterPath="$PROJECT_DIR$/draft.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,9 +117,25 @@
       <option name="presentableId" value="Default" />
       <updated>1582013376306</updated>
     </task>
+    <task id="LOCAL-00001" summary="123">
+      <created>1582981661304</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1582981661305</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="123" />
+    <option name="LAST_COMMIT_MESSAGE" value="123" />
+  </component>
   <component name="WindowStateProjectService">
+    <state x="1532" y="0" key="CommitChangelistDialog2" timestamp="1582981657448">
+      <screen x="1366" y="0" width="1024" height="768" />
+    </state>
+    <state x="1532" y="0" key="CommitChangelistDialog2/0.0.1366.768/1366.0.1024.768@1366.0.1024.768" timestamp="1582981657448" />
     <state x="517" y="300" width="356" height="167" key="Github.CreateGistDialog" timestamp="1582039854893">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -165,5 +180,9 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state width="1367" height="247" key="GridCell.Tab.1.right/0.0.1366.768/1366.0.1024.768@0.0.1366.768" timestamp="1582925352276" />
+    <state x="1470" y="117" key="Vcs.Push.Dialog.v2" timestamp="1582981666493">
+      <screen x="1366" y="0" width="1024" height="768" />
+    </state>
+    <state x="1470" y="117" key="Vcs.Push.Dialog.v2/0.0.1366.768/1366.0.1024.768@1366.0.1024.768" timestamp="1582981666493" />
   </component>
 </project>
