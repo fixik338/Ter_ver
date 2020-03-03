@@ -60,22 +60,27 @@ def kombin(t='0'):
         print("В ящике имеется kТЭЗ, из них k1 элементов 1-го типа, …, ki элементов i-готипа, …, km элементов m-го типа"
               "Из ящика выбирают наугад n ТЭЗ.\nНайти вероятность того, что среди них будет n1 ТЭЗ 1-го типа, …, "
               "ni ТЭЗ i-го типа,…, nm ТЭЗ m-го типа.")
-        kn = int(input("Кол - во типов = "))
-        k = np.zeros(kn)
-        for i in range(kn):
-            k[i] = int(input(' k[' + str(i) + '] = '))
-        kel = int(np.sum(k))
-        n = int(input('берут с ящика (не больше ' + str(kel) + ') = '))
-        kFind = int(input('Какой тип необходимо(не больше от 0 до ' + str(kn-1) + ') = '))
-        nFind = int(input('Сколько элементов типов необходимо(не больше ' + str(int(k[kFind])) + ') = '))
-        if nFind <= k[kFind]:
-            C = factorial(k[kFind]) / (factorial(nFind) * factorial(k[kFind] - nFind))
-            Cob = factorial(kel) / (factorial(n) * factorial(kel - n))
-            image = Image.open('images/CodeCogsEqn.gif')
-            image.show()
-            return C / Cob
-        else:
-            return 0
+        kel = int(input("Кол - во элементов = "))
+        k = []
+        i = 0
+        while True:
+            if sum(k) < kel:
+                k.append(int(input(' k[' + str(i) + '] = ')))
+                i+=1
+            else:
+                break
+        kt = len(k)
+        nt = int(input('берут с ящика (не больше ' + str(kel) + ') = '))
+        n = np.zeros(nt)
+        for i in range(kt):
+            n[i] = int(input(' n[' + str(i) + '] = '))
+        Cob = factorial(kel) / (factorial(nt) * factorial(kel - nt))
+        C = 1
+        for i in range(kt):
+            C *= (factorial(k[i]) / (factorial(n[i]) * factorial(k[i] - n[i])))
+        image = Image.open('images/CodeCogsEqn.gif')
+        image.show()
+        return C/Cob
     else:
         return "Такой комбинации не существует"
 
