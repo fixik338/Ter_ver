@@ -7,10 +7,14 @@ def kombin(t='0'):
     if t == '3':
         print("Перестановки с повторениями")
         n = int(input("Ввод n = "))
-        k = int(input('Количество ni = '))
-        m = np.zeros(k)
-        for i in range(k):
-            m[i] = int(input(' m[' + str(i) + '] = '))
+        m = []
+        i = 0
+        while True:
+            if sum(m) < n:
+                m.append(int(input(' m[' + str(i) + '] = ')))
+                i+=1
+            else:
+                break
         if sum(m) == n:
             C = 1
             for i in range(len(m)):
@@ -35,8 +39,8 @@ def kombin(t='0'):
             return "Ошибка в начальном условии"
     elif t == '1':
         print("Размещения с повторениями")
-        n = int(input("Ввод n"))
-        m = int(input('Ввод m'))
+        n = int(input("Ввод n = "))
+        m = int(input('Ввод m = '))
         A = n ** m
         image = Image.open("images/img-VEdgzz.png")
         image.show()

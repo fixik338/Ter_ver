@@ -15,7 +15,7 @@ def OnlyOneShooter(p, q):
     qs = q
     for i in range(1,6):
         qs[i] = p[i]
-        c.append(qs[1]*qs[2]*qs[3]*qs[4]*qs[5])
+        c.append(prod(qs))
         qs[i] = q[i]
     return sum(c)
 
