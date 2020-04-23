@@ -1,18 +1,18 @@
 import numpy as np
 from math import *
+import sympy as sp
 
-while True:
-    kn = int(input("Кол - во типов = "))
-    k = np.zeros(kn)
-    for i in range(kn):
-        k[i] = int(input(' k[' + str(i) + '] = '))
-    kel = int(np.sum(k))
-    n = int(input('берут с ящика (не больше ' + str(kel) + ') = '))
-    kFind = int(input('Какой тип (не больше ' + str(kn) + ') = '))
-    nFind = int(input('Сколько элементов (не больше ' + str(int(k[kFind])) + ') = '))
-    if nFind <= k[kFind]:
-        C = factorial(k[kFind]) / (factorial(nFind) * factorial(k[kFind] - nFind))
-        Cob = factorial(kel) / (factorial(n) * factorial(kel - n))
-        print(C, '\n', Cob, '\n', C / Cob)
-    else:
-        print(0)
+p = []
+q = []
+for i in range(5):
+    p.append(float(input('p[' + str(i) + '] = ')))
+    q.append(1 - p[i])
+
+z = sp.symbols('z')
+f5 = 1
+for i in range(5):
+    f5 *= (p[i]*z+q[i])
+f0 = str(sp.expand(f5))
+f = f0.split('*z**2 + ')
+f2 = f[0].split('*z**3 + ')
+print(f0, '\n', f2[1], f )
