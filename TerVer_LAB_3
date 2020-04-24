@@ -1,0 +1,91 @@
+import numpy as np
+from math import *
+from PIL import Image
+
+
+def C_bezrepeat(n, m):
+    return factorial(n) / (factorial(n - m) * factorial(m))
+
+
+def conditions():
+    n = int(input('n = '))
+    p = float(input('p =  '))
+    q = 1 - p
+    m = [i for i in range(n + 1)]
+    return [n, p, q, m]
+
+
+def conditions_DUO_secando():
+    n = int(input('n = '))
+    p = []
+    q = []
+    m = []
+    k = int(input('k = : '))
+    for i in range(k):
+        p.append(float(input('p[' + str(i) + '] = ')))
+        q.append(1 - p[i])
+    for i in range(k):
+        m.append(int(input('m[' + str(i) + '] = ')))
+    if sum(m) == n:
+        return [n, p, q, m, k]
+    else:
+        return 'Ошибка'
+
+def bernulli(n, p, q, m):
+    B = []
+    for i in range(n + 1):
+        B.append(C_bezrepeat(n, m[i]) * p ** m[i] * q ** (n - m[i]))
+    return B
+
+def polya_bernulya(n,p,m, k):
+    pm = 1
+    mm = 1
+    for i in range(k):
+        mm *= factorial(m[i])
+        pm *= p[i]**m[i]
+    return (factorial(n)/mm)*pm
+
+
+image = Image.open("images/bernulli.png")
+image1 = Image.open("images/polinom_bernulli.png")
+n, p, q, m = conditions()
+B = bernulli(n, p, q, m)
+print(np.sum(B))
+while True:
+    w = input('Выберете формулу Бернулли: '
+              '\n a) Мономиальная'
+              '\n b) Полиномиальная'
+              '\n ==> ')
+    if w == 'a':
+        t = input('Выберите тип события: '
+                  '\n a) k = m'
+                  '\n b) k < m'
+                  '\n c) k >= m'
+                  '\n d) m1 <= k <= m2'
+                  '\n e) Изменить параметры'
+                  '\n ==> ')
+
+        if t == 'a':
+            m = int(input('Выберите m: '))
+            print('Ответ: ', B[m])
+            image.show()
+        elif t == 'b':
+            m2 = int(input('Введите m2(right): '))
+            print('Ответ: ', np.sum(B[:m2]))
+            image.show()
+        elif t == 'c':
+            m1 = int(input('Введите m1(left): '))
+            print('Ответ: ', np.sum(B[m1:]))
+            image.show()
+        elif t == 'd':
+            m1 = int(input('Введите m1(left): '))
+            m2 = int(input('Введите m2(right): '))
+            print('Ответ: ', np.sum(B[m1:m2+1]))
+            image.show()
+        elif t == 'e':
+            n, p, q, m = conditions()
+    elif w == 'b':
+        n, p, q, m, k = conditions_DUO_secando()
+        B = polya_bernulya(n, p, m, k)
+        print(B)
+        image1.show()
