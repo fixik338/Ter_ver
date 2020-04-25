@@ -1,15 +1,26 @@
 import numpy as np
-from math import *
+from math import factorial
 from PIL import Image
+
+image = Image.open("images/bernulli.png")
+image1 = Image.open("images/polinom_bernulli.png")
+image2 = Image.open('images/Pussy.png')
 
 
 def C_bezrepeat(n, m):
     return factorial(n) / (factorial(n - m) * factorial(m))
 
 
+def pussy(n, p, m):
+    P = 0
+    for i in range(len(m)):
+        P += (((n * p) ** m[i]) / factorial(m[i])) * np.exp(-n * p)
+    return P
+
+
 def conditions():
     n = int(input('n = '))
-    p = float(input('p =  '))
+    p = float(input('p = '))
     q = 1 - p
     m = [i for i in range(n + 1)]
     return [n, p, q, m]
@@ -20,7 +31,7 @@ def conditions_DUO_secando():
     p = []
     q = []
     m = []
-    k = int(input('k = : '))
+    k = int(input('k = '))
     for i in range(k):
         p.append(float(input('p[' + str(i) + '] = ')))
         q.append(1 - p[i])
@@ -31,30 +42,77 @@ def conditions_DUO_secando():
     else:
         return 'Ошибка'
 
+
 def bernulli(n, p, q, m):
     B = []
     for i in range(n + 1):
         B.append(C_bezrepeat(n, m[i]) * p ** m[i] * q ** (n - m[i]))
     return B
 
-def polya_bernulya(n,p,m, k):
+
+def polya_bernulya(n, p, m, k):
     pm = 1
     mm = 1
     for i in range(k):
         mm *= factorial(m[i])
-        pm *= p[i]**m[i]
-    return (factorial(n)/mm)*pm
+        pm *= p[i] ** m[i]
+    return (factorial(n) / mm) * pm
 
 
-image = Image.open("images/bernulli.png")
-image1 = Image.open("images/polinom_bernulli.png")
-n, p, q, m = conditions()
-B = bernulli(n, p, q, m)
-print(np.sum(B))
+def pussy_quest():
+    t = int(input('Задача №'))
+    if t == 1:
+        print('Нежить получила 130 бутылок Эстуса. '
+              '\nВероятность того, что при использовании бутылка из бутылки вылезет Гвин, равна 0,003. '
+              '\nНайти вероятности того, что Нежить получит более двух бутылок с Гвином')
+        n = 130
+        p = 0.003
+        m = [i for i in range(2, n + 1)]
+        return pussy(n, p, m)
+    elif t == 2:
+        print('Вероятность наступления события в каждом из одинаковых независимых испытаний равна 0,02.'
+              '\nНайти вероятность того, что в 90 испытаниях событие наступит ровно 5 раз')
+        n = 90
+        p = 0.02
+        m = [5]
+        return pussy(n, p, m)
+
+
+def burn_quest():
+    t = int(input('Задача № '))
+    if t == 1:
+        print('\n\nУстройство, состоящее из семи независимо работающих элементов, включается за время Т. '
+              '\nВероятность отказа каждого из них за это время равна 0,2. Найти вероятность того, что откажут:'
+              '\n а) три элемента;'
+              '\n б) не менее четырех элементов;'
+              '\n в) менее шести элементов.'
+              '\n г) от двух до четырёх')
+        n = 7
+        p = 0.2
+        q = 1 - p
+        m = [i for i in range(n + 1)]
+        B = bernulli(n, p, q, m)
+        return B[3], np.sum(B[4:]), np.sum(B[:6]), np.sum(B[2:5])
+    elif t == 2:
+        print('В охранной комнате магазина "Пятерочка" наблюдатель следит за 8 дисплеями, '
+              '\nкаждый из которых даёт изображение с одной из 8 камер видеонаблюдения. '
+              '\nНарушитель пытается пробраться мимо камер. '
+              '\nНайти вероятность того что нарушитель будет сразу замечен, если вероятность обнаружения:'
+              '\nна трёх камерах = 0.3'
+              '\nна четырёх = 0.5'
+              '\nна одной = 0.2')
+        n = 8
+        p = [0.3, 0.5, 0.2]
+        m = [3, 4, 1]
+        return polya_bernulya(n, p, m, len(p))
+
+
 while True:
     w = input('Выберете формулу Бернулли: '
               '\n a) Мономиальная'
               '\n b) Полиномиальная'
+              '\n c) Пуассомиальная'
+              '\n d) Выбрать задачу'
               '\n ==> ')
     if w == 'a':
         t = input('Выберите тип события: '
@@ -62,30 +120,54 @@ while True:
                   '\n b) k < m'
                   '\n c) k >= m'
                   '\n d) m1 <= k <= m2'
-                  '\n e) Изменить параметры'
                   '\n ==> ')
-
         if t == 'a':
+            n, p, q, m = conditions()
+            B = bernulli(n, p, q, m)
             m = int(input('Выберите m: '))
             print('Ответ: ', B[m])
             image.show()
         elif t == 'b':
+            n, p, q, m = conditions()
+            B = bernulli(n, p, q, m)
             m2 = int(input('Введите m2(right): '))
             print('Ответ: ', np.sum(B[:m2]))
             image.show()
         elif t == 'c':
+            n, p, q, m = conditions()
+            B = bernulli(n, p, q, m)
             m1 = int(input('Введите m1(left): '))
             print('Ответ: ', np.sum(B[m1:]))
             image.show()
         elif t == 'd':
+            n, p, q, m = conditions()
+            B = bernulli(n, p, q, m)
             m1 = int(input('Введите m1(left): '))
             m2 = int(input('Введите m2(right): '))
-            print('Ответ: ', np.sum(B[m1:m2+1]))
+            print('Ответ: ', np.sum(B[m1:m2 + 1]))
             image.show()
-        elif t == 'e':
-            n, p, q, m = conditions()
     elif w == 'b':
         n, p, q, m, k = conditions_DUO_secando()
         B = polya_bernulya(n, p, m, k)
         print(B)
         image1.show()
+    elif w == 'c':
+        print('n - не больше 150')
+        n, p, q, m = conditions()
+        d = []
+        for i in ['Левая', 'Правая']:
+            d.append(int(input(i + ' граница= ')))
+        if d[1] < 150 and d[0] < 150:
+            print(pussy(n, p, m[d[0]: d[1] + 1]))
+            image2.show()
+        else:
+            print('Ошибка my dummy little cake(n больше 150), попробуй еще раз')
+    elif w == 'd':
+        y = input('Выберите тип задач '
+                  '\n p - Пуассон'
+                  '\n b - Бернулли'
+                  '\n ==> ')
+        if y == 'p':
+            print('Ответ: ', pussy_quest())
+        elif y == 'b':
+            print('Ответ: ', burn_quest())
