@@ -33,10 +33,10 @@ def conditions_DUO_secando():
     m = []
     k = int(input('k = '))
     for i in range(k):
-        p.append(float(input('p[' + str(i) + '] = ')))
+        p.append(float(input('p[' + str(i+1) + '] = ')))
         q.append(1 - p[i])
     for i in range(k):
-        m.append(int(input('m[' + str(i) + '] = ')))
+        m.append(int(input('m[' + str(i+1) + '] = ')))
     if sum(m) == n:
         return [n, p, q, m, k]
     else:

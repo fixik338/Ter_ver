@@ -12,7 +12,7 @@ def kombin(t='0'):
         while True:
             if sum(m) < n:
                 m.append(int(input(' m[' + str(i) + '] = ')))
-                i+=1
+                i += 1
             else:
                 break
         if sum(m) == n:
@@ -70,7 +70,7 @@ def kombin(t='0'):
         while True:
             if sum(k) < kel:
                 k.append(int(input(' k[' + str(i) + '] = ')))
-                i+=1
+                i += 1
             else:
                 break
         kt = len(k)
@@ -84,7 +84,7 @@ def kombin(t='0'):
             C *= (factorial(k[i]) / (factorial(n[i]) * factorial(k[i] - n[i])))
         image = Image.open('images/CodeCogsEqn.gif')
         image.show()
-        return C/Cob
+        return C / Cob
     else:
         return "Такой комбинации не существует"
 
