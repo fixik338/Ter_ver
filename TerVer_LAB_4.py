@@ -8,6 +8,40 @@ image2 = Image.open('images/dispisya.png')
 image3 = Image.open('images/Matozha.png')
 
 
+def C_bezrepeat(n, m):
+    return factorial(n) / (factorial(n - m) * factorial(m))
+
+
+def binom(n, p):
+    q = 1 - p
+    M = n * p
+    D = n * p * q
+    P = []
+    for i in range(n + 1):
+        P.append(C_bezrepeat(n, i) * p ** i * q ** n - i)
+    return M, D, P
+
+
+def chisl_harac(x, p):
+    M = np.sum(x * p)
+    M_2 = np.sum((x ** 2) * p)
+    D = M_2 - M ** 2
+    return M, D
+
+
+def gip_geo(n, m, k, X):
+    p = (C_bezrepeat(m, k) * C_bezrepeat(n - m, X - k)) / C_bezrepeat(n, X)
+    return p
+
+
+def psevd_geo(k, p):
+    p = np.array(p)
+    q = 1 - p
+    k = np.arange(k)
+    P = q ** (k - 1) * p
+    return P
+
+
 def pussy(lmbd, m):
     P = []
     for i in range(len(m)):
@@ -23,7 +57,7 @@ def pussy_quest():
         print('Случайная величина Храспределена по закону Пуассона, причем lmbd = 0,2. '
               '\nПостройте часть ряда распределения случайной величины Х для m = 0, 1, 2, 3, 4.')
         lmbd1 = 0.2
-        m1 = m = [i for i in range(5)]
+        m1 = [i for i in range(5)]
         print('\nСлучайная величина Х распределена по закону Пуассона, причем lmbd = 0,8. '
               '\nПостройте часть ряда распределения случайной величины Х для m = 0, 1, 2, 3, 4, 5, 6.')
         lmbd2 = 0.8
@@ -37,20 +71,9 @@ def pussy_quest():
         lmbd = float(input('Значелие лямбды: '))
         mk = int(input('Количество m: '))
         m = []
-        for i in range(mk+1):
-            m.append(int(input('m[' + str(i+1) + '] = ')))
+        for i in range(mk + 1):
+            m.append(int(input('m[' + str(i + 1) + '] = ')))
         return pussy(lmbd, m), m
-
-def Matozha(x, p):
-    return np.sum(x * p)
-
-
-def Matozha_double(x, p):
-    return (np.sum((x ** 2) * p))
-
-
-def Dispisya(a, b):
-    return a - b ** 2
 
 
 def F(x, p):
@@ -92,28 +115,55 @@ def GERAF(x, y, p):
     plt.ylabel('p')
     plt.show()
 
+
 while True:
     w = input('Выберите: '
-              '\n a) График'
-              '\n b) Решение задач'
+              '\n 1) Вид распределения'
+              '\n 2) Решение задач'
               '\n ==> ')
-    if w == 'a':
-        x, p = condition()
-        M = Matozha(x, p)
-        M_2 = Matozha_double(x, p)
-        D = Dispisya(M_2, M)
-        F = F(x, p)
-        GERAF(x, F, p)
-        x = x[1:]
-        p = p[1:]
-        print('Математическое ожидание:', np.round(M, 4),
-              '\nДисперсия:', np.round(D, 4),
-              '\nСреднее квадратическое отклонение: ', np.round(sqrt(D), 4),
-              '\nМода:', np.max(p))
+    if w == '1':
+        w = input('\n a) Биноминальное'
+                  '\n b) Гипергеометрическое'
+                  '\n c) Пуассона'
+                  '\n d) Псевдогеометрическое'
+                  '\n ==> ')
+        if w == 'a':
+            x, p = condition()
+            M, D, p = binom(x[1:], p[1:])
+            F = F(x, p)
+            GERAF(x, F, p)
+            print('Математическое ожидание:', np.round(M, 4),
+                  '\nДисперсия:', np.round(D, 4),
+                  '\nСреднее квадратическое отклонение: ', np.round(sqrt(D), 4),
+                  '\nМода:', np.max(p))
+        elif w == 'b':
+            n = int(input())
+            m = int(input())
+            X = int(input())
+            c = int(input())
+            k = []
+            for i in range(c + 1):
+                k.append(int(input('k[' + str(i + 1) + ']= ')))
+            k = np.array(k)
+            p = gip_geo(n, m, k, X)
+            M, D = chisl_harac(k, p)
+            for i in range(len(k)):
+                print('\nОтвет[' + str(i + 1) + ']:\n', k[i], '\n', np.round(p[i], 4))
+        elif w == 'c':
+            lmbd = float(input())
+            c = int(input('Кол-во m: '))
+            m = [i for i in range(c + 1)]
+            p = pussy(lmbd, m)
+            for i in range(len(m)):
+                print('\nОтвет[' + str(i + 1) + ']:\n', m[i], '\n', np.round(p[i], 4))
+        elif w == 'd':
+            x, p = condition()
+            M, D = chisl_harac(x, p)
+            p = psevd_geo(x, p)
         image1.show()
         image2.show()
         image3.show()
-    elif w == 'b':
+    elif w == '2':
         p, m = pussy_quest()
         for i in range(len(m)):
-            print('\nОтвет['+str(i+1)+']:\n',  m[i], '\n', np.round(p[i], 4))
+            print('\nОтвет[' + str(i + 1) + ']:\n', m[i], '\n', np.round(p[i], 4))

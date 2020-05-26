@@ -161,7 +161,7 @@ while True:
             print(pussy(n, p, m[d[0]: d[1] + 1]))
             image2.show()
         else:
-            print('Ошибка my dummy little cake(n больше 150), попробуй еще раз')
+            print('Ошибка (n больше 150), попробуй еще раз')
     elif w == 'd':
         y = input('Выберите тип задач '
                   '\n p - Пуассон'
