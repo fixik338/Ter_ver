@@ -37,8 +37,9 @@ def gip_geo(n, m, k, X):
 def psevd_geo(k, p):
     p = np.array(p)
     q = 1 - p
-    k = np.arange(k)
+    k = np.arange(1, k+1)
     P = q ** (k - 1) * p
+    P[-1]=1-np.sum(P[:-1])
     return P
 
 
@@ -89,11 +90,12 @@ def condition():
     x = [0]
     p = [0]
     for i in range(X):
-        x.append(int(input('x[' + str(i + 1) + ']= ')))
+        # x.append(int(input('x[' + str(i + 1) + ']= ')))
         p.append(float(input('p[' + str(i + 1) + ']= ')))
     x = np.array(x)
     p = np.array(p)
     return x, p
+
 
 
 def GERAF(x, y, p):
@@ -128,27 +130,26 @@ while True:
                   '\n d) Псевдогеометрическое'
                   '\n ==> ')
         if w == 'a':
-            x, p = condition()
-            M, D, p = binom(x[1:], p[1:])
-            F = F(x, p)
-            GERAF(x, F, p)
+            n = int(input('n = '))
+            p = float(input('p = '))
+            M, D, p = binom(n, p)
+            F = F(range(n+1), p)
+            GERAF(range(n+1), F, p)
             print('Математическое ожидание:', np.round(M, 4),
                   '\nДисперсия:', np.round(D, 4),
                   '\nСреднее квадратическое отклонение: ', np.round(sqrt(D), 4),
                   '\nМода:', np.max(p))
         elif w == 'b':
-            n = int(input())
-            m = int(input())
-            X = int(input())
-            c = int(input())
-            k = []
-            for i in range(c + 1):
-                k.append(int(input('k[' + str(i + 1) + ']= ')))
+            n = int(input('n = '))
+            m = int(input('m = '))
+            X = int(input('X = '))
+            c = int(input('c = '))
+            k = range(c + 1)
             k = np.array(k)
-            p = gip_geo(n, m, k, X)
-            M, D = chisl_harac(k, p)
             for i in range(len(k)):
-                print('\nОтвет[' + str(i + 1) + ']:\n', k[i], '\n', np.round(p[i], 4))
+                p = gip_geo(n, m, k[i], X)
+                M, D = chisl_harac(k, p)
+                print('\nОтвет[' + str(i + 1) + ']:\n', k[i], '\n', np.round(p, 4),)
         elif w == 'c':
             lmbd = float(input())
             c = int(input('Кол-во m: '))
@@ -157,12 +158,14 @@ while True:
             for i in range(len(m)):
                 print('\nОтвет[' + str(i + 1) + ']:\n', m[i], '\n', np.round(p[i], 4))
         elif w == 'd':
-            x, p = condition()
-            M, D = chisl_harac(x, p)
-            p = psevd_geo(x, p)
-        image1.show()
-        image2.show()
-        image3.show()
+            k = int(input('k = '))
+            p = float(input('p = '))
+            M, D = chisl_harac(k, p)
+            p = psevd_geo(k, p)
+            print(p)
+        # image1.show()
+        # image2.show()
+        # image3.show()
     elif w == '2':
         p, m = pussy_quest()
         for i in range(len(m)):
