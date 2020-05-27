@@ -37,9 +37,9 @@ def gip_geo(n, m, k, X):
 def psevd_geo(k, p):
     p = np.array(p)
     q = 1 - p
-    k = np.arange(1, k+1)
+    k = np.arange(1, k + 1)
     P = q ** (k - 1) * p
-    P[-1]=1-np.sum(P[:-1])
+    P[-1] = 1 - np.sum(P[:-1])
     return P
 
 
@@ -97,7 +97,6 @@ def condition():
     return x, p
 
 
-
 def GERAF(x, y, p):
     plt.subplot(2, 1, 1)
     plt.hlines(y[-1], x[-1], 10)
@@ -119,7 +118,7 @@ def GERAF(x, y, p):
 
 
 while True:
-    w = input('Выберите: '
+    w = input('\nВыберите: '
               '\n 1) Вид распределения'
               '\n 2) Решение задач'
               '\n ==> ')
@@ -133,8 +132,8 @@ while True:
             n = int(input('n = '))
             p = float(input('p = '))
             M, D, p = binom(n, p)
-            F = F(range(n+1), p)
-            GERAF(range(n+1), F, p)
+            F = F(range(n + 1), p)
+            GERAF(range(n + 1), F, p)
             print('Математическое ожидание:', np.round(M, 4),
                   '\nДисперсия:', np.round(D, 4),
                   '\nСреднее квадратическое отклонение: ', np.round(sqrt(D), 4),
@@ -143,26 +142,47 @@ while True:
             n = int(input('n = '))
             m = int(input('m = '))
             X = int(input('X = '))
-            c = int(input('c = '))
-            k = range(c + 1)
+            k = int(input('k = '))
+            k = range(k + 1)
             k = np.array(k)
+            p = []
             for i in range(len(k)):
-                p = gip_geo(n, m, k[i], X)
-                M, D = chisl_harac(k, p)
-                print('\nОтвет[' + str(i + 1) + ']:\n', k[i], '\n', np.round(p, 4),)
+                p.append(gip_geo(n, m, k[i], X))
+            M, D = chisl_harac(k, p)
+            print(k, '\n', np.round(p, 4), )
+            plt.plot(k, p, color='black')
+            plt.grid(True)
+            plt.title('Многоугольник распределения')
+            plt.xlabel('x')
+            plt.ylabel('p')
+            plt.show()
         elif w == 'c':
             lmbd = float(input())
             c = int(input('Кол-во m: '))
             m = [i for i in range(c + 1)]
             p = pussy(lmbd, m)
+            print(m)
             for i in range(len(m)):
-                print('\nОтвет[' + str(i + 1) + ']:\n', m[i], '\n', np.round(p[i], 4))
+                print(np.round(p[i], 4), end=' ')
+            plt.plot(m, p, color='black')
+            plt.grid(True)
+            plt.title('Многоугольник распределения')
+            plt.xlabel('x')
+            plt.ylabel('p')
+            plt.show()
         elif w == 'd':
             k = int(input('k = '))
             p = float(input('p = '))
             M, D = chisl_harac(k, p)
             p = psevd_geo(k, p)
             print(p)
+            plt.plot(range(k), p, color='black')
+            plt.grid(True)
+            plt.title('Многоугольник распределения')
+            plt.xlabel('x')
+            plt.ylabel('p')
+            plt.show()
+
         # image1.show()
         # image2.show()
         # image3.show()
