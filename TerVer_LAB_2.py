@@ -43,9 +43,11 @@ def Noless4Shooters(p, q):
     return float(f[0]) + float(f2[0])
 
 
-def AtLeast1Shooter(p):
-    return sum(p)
-
+def AtLeast1Shooter(p,q):
+    d = 1
+    for i in range(len(q)):
+        d *= q[i]
+    return 1 - d
 
 def terver(t='0'):
     if t == '1':
@@ -78,11 +80,11 @@ def terver(t='0'):
             p = []
             q = []
             for i in range(0, 5):
-                p.append(float(input('p[' + str(i) + '] = ')))
-                if q[i] < 0:
+                p.append(float(input('p[' + str(i+1) + '] = ')))
+                if p[i] < 0:
                     print("Ошибка: вероятность не может быть отридцательной.")
                     quit()
-                if np.sum(q) > 1:
+                if p[i] > 1:
                     print("Ошибка: общая вероятность не может быть больше 1.")
                     quit()
                 q.append(1 - p[i])
@@ -95,7 +97,7 @@ def terver(t='0'):
             elif g == 'd':
                 print(Noless4Shooters(p, q))
             elif g == 'e':
-                print(AtLeast1Shooter(p))
+                print(AtLeast1Shooter(p,q))
     elif t == '3':
         print(
             "Определить надёжность схемы, указанной на рисунке, считая, "
