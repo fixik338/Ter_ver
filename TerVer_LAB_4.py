@@ -1,11 +1,11 @@
 import numpy as np
 from math import *
-# from PIL import Image
+from PIL import Image
 import matplotlib.pyplot as plt
-#
-# image1 = Image.open('images/srd_kdr.png')
-# image2 = Image.open('images/dispisya.png')
-# image3 = Image.open('images/Matozha.png')
+
+image1 = Image.open('images/srd_kdr.png')
+image2 = Image.open('images/dispisya.png')
+image3 = Image.open('images/Matozha.png')
 
 
 def C_bezrepeat(n, m):
@@ -152,7 +152,7 @@ while True:
             plt.ylabel('p')
             plt.show()
         elif w == 'c':
-            lmbd = float(input())
+            lmbd = float(input('Лямбда= '))
             c = int(input('Кол-во m: '))
             m = [i for i in range(c + 1)]
             p = pussy(lmbd, m)
@@ -186,9 +186,9 @@ while True:
                   '\nСреднее квадратическое отклонение: ', np.round(sqrt(D), 4),
                   '\nМода:', np.max(p))
             GERAF(x[1:], F, p[1:])
-        # image1.show()
-        # image2.show()
-        # image3.show()
+        image1.show()
+        image2.show()
+        image3.show()
     elif w == '2':
         p, m = pussy_quest()
         for i in range(len(m)):
