@@ -1,10 +1,10 @@
 import numpy as np
 from math import factorial
-# from PIL import Image
-#
-# image = Image.open("images/bernulli.png")
-# image1 = Image.open("images/polinom_bernulli.png")
-# image2 = Image.open('images/Pussy.png')
+from PIL import Image
+
+image = Image.open("images/bernulli.png")
+image1 = Image.open("images/polinom_bernulli.png")
+image2 = Image.open('images/Pussy.png')
 
 
 def C_bezrepeat(n, m):
@@ -157,31 +157,31 @@ while True:
             B = bernulli(n, p, q, m)
             m = int(input('Выберите m: '))
             print('Ответ: ', B[m])
-            # image.show()
+            image.show()
         elif t == 'b':
             n, p, q, m = conditions()
             B = bernulli(n, p, q, m)
             m2 = int(input('Введите m2(right): '))
             print('Ответ: ', np.sum(B[:m2]))
-            # image.show()
+            image.show()
         elif t == 'c':
             n, p, q, m = conditions()
             B = bernulli(n, p, q, m)
             m1 = int(input('Введите m1(left): '))
             print('Ответ: ', np.sum(B[m1:]))
-            # image.show()
+            image.show()
         elif t == 'd':
             n, p, q, m = conditions()
             B = bernulli(n, p, q, m)
             m1 = int(input('Введите m1(left): '))
             m2 = int(input('Введите m2(right): '))
             print('Ответ: ', np.sum(B[m1:m2 + 1]))
-            # image.show()
+            image.show()
     elif w == 'b':
         n, p, q, m, k = conditions_DUO_secando()
         B = polya_bernulya(n, p, m, k)
         print(B)
-        # image1.show()
+        image1.show()
     elif w == 'c':
         print('n - не больше 150')
         n, p, q, m = conditions()
@@ -190,7 +190,7 @@ while True:
             d.append(int(input(i + ' граница= ')))
         if d[1] < 150 and d[0] < 150:
             print(pussy(n, p, m[d[0]: d[1] + 1]))
-            # image2.show()
+            image2.show()
         else:
             print('Ошибка (n больше 150), попробуй еще раз')
     elif w == 'd':
