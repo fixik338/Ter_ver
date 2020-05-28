@@ -1,11 +1,11 @@
 import numpy as np
 from math import *
-from PIL import Image
+# from PIL import Image
 import matplotlib.pyplot as plt
-
-image1 = Image.open('images/srd_kdr.png')
-image2 = Image.open('images/dispisya.png')
-image3 = Image.open('images/Matozha.png')
+#
+# image1 = Image.open('images/srd_kdr.png')
+# image2 = Image.open('images/dispisya.png')
+# image3 = Image.open('images/Matozha.png')
 
 
 def C_bezrepeat(n, m):
@@ -90,7 +90,7 @@ def condition():
     x = [0]
     p = [0]
     for i in range(X):
-        # x.append(int(input('x[' + str(i + 1) + ']= ')))
+        x.append(int(input('x[' + str(i + 1) + ']= ')))
         p.append(float(input('p[' + str(i + 1) + ']= ')))
     x = np.array(x)
     p = np.array(p)
@@ -99,7 +99,7 @@ def condition():
 
 def GERAF(x, y, p):
     plt.subplot(2, 1, 1)
-    plt.hlines(y[-1], x[-1], 10)
+    plt.hlines(y[-1], x[-1], 60)
     for i in range(1, len(x)):
         plt.hlines(y[i - 1], x[i - 1], x[i])
     for i in range(1, len(x)):
@@ -127,17 +127,12 @@ while True:
                   '\n b) Гипергеометрическое'
                   '\n c) Пуассона'
                   '\n d) Псевдогеометрическое'
+                  '\n e) Ислледование СВ'
                   '\n ==> ')
         if w == 'a':
             n = int(input('n = '))
             p = float(input('p = '))
             M, D, p = binom(n, p)
-            F = F(range(n + 1), p)
-            GERAF(range(n + 1), F, p)
-            print('Математическое ожидание:', np.round(M, 4),
-                  '\nДисперсия:', np.round(D, 4),
-                  '\nСреднее квадратическое отклонение: ', np.round(sqrt(D), 4),
-                  '\nМода:', np.max(p))
         elif w == 'b':
             n = int(input('n = '))
             m = int(input('m = '))
@@ -182,7 +177,15 @@ while True:
             plt.xlabel('x')
             plt.ylabel('p')
             plt.show()
-
+        elif w == 'e':
+            x, p=condition()
+            M, D = chisl_harac(x, p)
+            F = F(x[1:], p[1:])
+            print('Математическое ожидание:', np.round(M, 4),
+                  '\nДисперсия:', np.round(D, 4),
+                  '\nСреднее квадратическое отклонение: ', np.round(sqrt(D), 4),
+                  '\nМода:', np.max(p))
+            GERAF(x[1:], F, p[1:])
         # image1.show()
         # image2.show()
         # image3.show()
