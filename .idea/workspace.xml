@@ -4,7 +4,6 @@
     <list default="true" id="80569f6f-d20a-4ca6-bdd1-0ec2a05d53f8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TerVer_LAB_3" beforeDir="false" afterPath="$PROJECT_DIR$/TerVer_LAB_3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TerVer_LAB_4.py" beforeDir="false" afterPath="$PROJECT_DIR$/TerVer_LAB_4.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -379,7 +378,21 @@
       <option name="project" value="LOCAL" />
       <updated>1590686554122</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Поменял дибильные описния на нормальные и убрал комментарии">
+      <created>1590702124869</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1590702124869</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Поменял дибильные описания на нормальные и убрал комментарии">
+      <created>1590702158413</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1590702158413</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -401,7 +414,9 @@
     <MESSAGE value="заккоментированы команды вывда картинок с формулами в 3 лабе" />
     <MESSAGE value="&#10;eeeestsrgxyc" />
     <MESSAGE value="Добавлено исследование СВ" />
-    <option name="LAST_COMMIT_MESSAGE" value="Добавлено исследование СВ" />
+    <MESSAGE value="Поменял дибильные описния на нормальные и убрал комментарии" />
+    <MESSAGE value="Поменял дибильные описания на нормальные и убрал комментарии" />
+    <option name="LAST_COMMIT_MESSAGE" value="Поменял дибильные описания на нормальные и убрал комментарии" />
   </component>
   <component name="WindowStateProjectService">
     <state x="433" y="166" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1587660776491">
@@ -423,38 +438,38 @@
       <screen x="1366" y="0" width="1024" height="768" />
     </state>
     <state x="1366" y="64" key="DiffContextDialog/0.0.1366.768/1366.0.1024.768@1366.0.1024.768" timestamp="1582984680194" />
-    <state width="410" height="291" key="GridCell.Tab.0.bottom" timestamp="1590700995473">
+    <state width="1350" height="102" key="GridCell.Tab.0.bottom" timestamp="1590706092633">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state width="1367" height="231" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.0.1024.728@0.0.1366.728" timestamp="1587913011957" />
     <state width="1367" height="202" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1587848467317" />
     <state width="1367" height="155" key="GridCell.Tab.0.bottom/0.0.1366.768/1366.0.1024.768@0.0.1366.768" timestamp="1584450086232" />
     <state width="1025" height="152" key="GridCell.Tab.0.bottom/0.0.1366.768/1366.0.1024.768@1366.0.1024.768" timestamp="1583218101589" />
-    <state width="410" height="291" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1590700995473" />
-    <state width="410" height="291" key="GridCell.Tab.0.center" timestamp="1590700995473">
+    <state width="1350" height="102" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1590706092633" />
+    <state width="1350" height="102" key="GridCell.Tab.0.center" timestamp="1590706092632">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state width="1367" height="231" key="GridCell.Tab.0.center/0.0.1366.728/1366.0.1024.728@0.0.1366.728" timestamp="1587913011957" />
     <state width="1367" height="202" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1587848467317" />
     <state width="1367" height="155" key="GridCell.Tab.0.center/0.0.1366.768/1366.0.1024.768@0.0.1366.768" timestamp="1584450086232" />
     <state width="1025" height="152" key="GridCell.Tab.0.center/0.0.1366.768/1366.0.1024.768@1366.0.1024.768" timestamp="1583218101589" />
-    <state width="410" height="291" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1590700995473" />
-    <state width="410" height="291" key="GridCell.Tab.0.left" timestamp="1590700995472">
+    <state width="1350" height="102" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1590706092632" />
+    <state width="1350" height="102" key="GridCell.Tab.0.left" timestamp="1590706092632">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state width="1367" height="231" key="GridCell.Tab.0.left/0.0.1366.728/1366.0.1024.728@0.0.1366.728" timestamp="1587913011957" />
     <state width="1367" height="202" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1587848467317" />
     <state width="1367" height="155" key="GridCell.Tab.0.left/0.0.1366.768/1366.0.1024.768@0.0.1366.768" timestamp="1584450086232" />
     <state width="1025" height="152" key="GridCell.Tab.0.left/0.0.1366.768/1366.0.1024.768@1366.0.1024.768" timestamp="1583218101588" />
-    <state width="410" height="291" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1590700995472" />
-    <state width="410" height="291" key="GridCell.Tab.0.right" timestamp="1590700995473">
+    <state width="1350" height="102" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1590706092632" />
+    <state width="1350" height="102" key="GridCell.Tab.0.right" timestamp="1590706092632">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state width="1367" height="231" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1024.728@0.0.1366.728" timestamp="1587913011957" />
     <state width="1367" height="202" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1587848467317" />
     <state width="1367" height="155" key="GridCell.Tab.0.right/0.0.1366.768/1366.0.1024.768@0.0.1366.768" timestamp="1584450086232" />
     <state width="1025" height="152" key="GridCell.Tab.0.right/0.0.1366.768/1366.0.1024.768@1366.0.1024.768" timestamp="1583218101589" />
-    <state width="410" height="291" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1590700995473" />
+    <state width="1350" height="102" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1590706092632" />
     <state width="681" height="246" key="GridCell.Tab.1.bottom" timestamp="1590522501469">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -479,12 +494,12 @@
     <state width="1367" height="231" key="GridCell.Tab.1.right/0.0.1366.728/1366.0.1024.728@0.0.1366.728" timestamp="1587913011958" />
     <state width="1367" height="247" key="GridCell.Tab.1.right/0.0.1366.768/1366.0.1024.768@0.0.1366.768" timestamp="1582925352276" />
     <state width="681" height="246" key="GridCell.Tab.1.right/0.0.1366.768@0.0.1366.768" timestamp="1590522501468" />
-    <state x="139" y="117" key="Vcs.Push.Dialog.v2" timestamp="1590686779937">
+    <state x="139" y="117" key="Vcs.Push.Dialog.v2" timestamp="1590702170241">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="139" y="111" key="Vcs.Push.Dialog.v2/0.0.1366.728/1366.0.1024.728@0.0.1366.728" timestamp="1587912169987" />
     <state x="139" y="111" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1587839872725" />
     <state x="1470" y="117" key="Vcs.Push.Dialog.v2/0.0.1366.768/1366.0.1024.768@1366.0.1024.768" timestamp="1583009153256" />
-    <state x="139" y="117" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1590686779937" />
+    <state x="139" y="117" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1590702170241" />
   </component>
 </project>

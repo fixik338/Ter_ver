@@ -11,7 +11,7 @@ def C_bezrepeat(n, m):
     return factorial(n) / (factorial(n - m) * factorial(m))
 
 
-def pussy(n, p, m):
+def puass(n, p, m):
     P = 0
     for i in range(len(m)):
         P += (((n * p) ** m[i]) / factorial(m[i])) * np.exp(-n * p)
@@ -59,7 +59,7 @@ def polya_bernulya(n, p, m, k):
     return (factorial(n) / mm) * pm
 
 
-def pussy_quest():
+def puass_quest():
     t = int(input('Задача №'))
     if t == 1:
         print('Нежить получила 130 бутылок Эстуса. '
@@ -68,17 +68,17 @@ def pussy_quest():
         n = 130
         p = 0.003
         m = [i for i in range(2, n + 1)]
-        return pussy(n, p, m)
+        return puass(n, p, m)
     elif t == 2:
         print('Вероятность наступления события в каждом из одинаковых независимых испытаний равна 0,02.'
               '\nНайти вероятность того, что в 90 испытаниях событие наступит ровно 5 раз')
         n = 90
         p = 0.02
         m = [5]
-        return pussy(n, p, m)
+        return puass(n, p, m)
 
 
-def burn_quest():
+def bern_quest():
     t = int(input('Задача на формулу: '
                   '\nБернулли - 1'
                   '\nПолиномиальную формулу Бернулли - 2 \n==>'))
@@ -189,7 +189,7 @@ while True:
         for i in ['Левая', 'Правая']:
             d.append(int(input(i + ' граница= ')))
         if d[1] < 150 and d[0] < 150:
-            print(pussy(n, p, m[d[0]: d[1] + 1]))
+            print(puass(n, p, m[d[0]: d[1] + 1]))
             image2.show()
         else:
             print('Ошибка (n больше 150), попробуй еще раз')
@@ -199,6 +199,6 @@ while True:
                   '\n b - Бернулли'
                   '\n ==> ')
         if y == 'p':
-            print('Ответ: ', pussy_quest())
+            print('Ответ: ', puass_quest())
         elif y == 'b':
-            print('Ответ: ', burn_quest())
+            print('Ответ: ', bern_quest())
