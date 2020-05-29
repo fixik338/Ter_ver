@@ -43,14 +43,14 @@ def psevd_geo(k, p):
     return P
 
 
-def pussy(lmbd, m):
+def puass(lmbd, m):
     P = []
     for i in range(len(m)):
         P.append((lmbd ** m[i]) / factorial(m[i]) * np.exp(-lmbd))
     return P
 
 
-def pussy_quest():
+def puass_quest():
     t = input('a) Задачи'
               '\nb) Ручной ввод'
               '\n ==> ')
@@ -67,14 +67,14 @@ def pussy_quest():
               '\nПостройте часть ряда распределения случайной величины Х для m = 0, 1, 2, 3, 4, 5, 6.')
         lmbd3 = 3
         m3 = [i for i in range(7)]
-        return [[pussy(lmbd1, m1), pussy(lmbd2, m2), pussy(lmbd3, m3)], [m1, m2, m3]]
+        return [[puass(lmbd1, m1), puass(lmbd2, m2), puass(lmbd3, m3)], [m1, m2, m3]]
     elif t == 'b':
         lmbd = float(input('Значелие лямбды: '))
         mk = int(input('Количество m: '))
         m = []
         for i in range(mk + 1):
             m.append(int(input('m[' + str(i + 1) + '] = ')))
-        return pussy(lmbd, m), m
+        return puass(lmbd, m), m
 
 
 def F(x, p):
@@ -155,7 +155,7 @@ while True:
             lmbd = float(input('Лямбда= '))
             c = int(input('Кол-во m: '))
             m = [i for i in range(c + 1)]
-            p = pussy(lmbd, m)
+            p = puass(lmbd, m)
             print(m)
             for i in range(len(m)):
                 print(np.round(p[i], 4), end=' ')
@@ -190,6 +190,6 @@ while True:
         image2.show()
         image3.show()
     elif w == '2':
-        p, m = pussy_quest()
+        p, m = puass_quest()
         for i in range(len(m)):
             print('\nОтвет[' + str(i + 1) + ']:\n', m[i], '\n', np.round(p[i], 4))
